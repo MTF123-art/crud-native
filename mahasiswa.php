@@ -19,6 +19,7 @@ $mahasiswa = mysqli_query($conn, "SELECT * FROM mahasiswa");
                   <th scope="col">NO</th>
                   <th scope="col">Nama</th>
                   <th scope="col">NIM</th>
+                  <th scope="col">Email</th>
                   <th scope="col">Jenis Kelamin</th>
                   <th scope="col">Alamat</th>
                   <th scope="col">Jurusan</th>
@@ -32,6 +33,7 @@ $mahasiswa = mysqli_query($conn, "SELECT * FROM mahasiswa");
                   <th scope="row"><?= $a++?></th>
                   <td><?= $data["nama"] ?></td>
                   <td><?= $data["nim"] ?></td>
+                  <td><?= $data["email"] ?></td>
                   <td><?= $data["jenis_kelamin"] ?></td>
                   <td><?= $data["alamat"] ?></td>
                   <?php $jurusan =mysqli_fetch_assoc(mysqli_query($conn, "SELECT nama_jurusan FROM jurusan where id_jurusan = '$data[jurusan_id]'"));?>

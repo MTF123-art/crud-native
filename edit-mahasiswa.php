@@ -19,6 +19,11 @@ $data = mysqli_fetch_assoc($mahasiswa);
          <label for="nim" class="form-label">NIM Mahasiswa</label>
          <input type="text" class="form-control" id="nim" aria-describedby="emailHelp" name="nim_mahasiswa" value="<?= $data['nim'] ?>" required>
       </div>
+   
+      <div class="mb-3">
+         <label for="email" class="form-label">Email Mahasiswa</label>
+         <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email_mahasiswa" value="<?= $data['email'] ?>" required>
+      </div>
 
       <div class="mb-3">
          <label for="alamat" class="form-label">Alamat Mahasiswa</label>
@@ -53,11 +58,12 @@ if (isset($_POST["simpan"])) {
    if ($_POST["nama_mahasiswa"]) {
       $nama_mahasiswa = $_POST["nama_mahasiswa"];
       $nim_mahasiswa = $_POST["nim_mahasiswa"];
+      $email_mahasiswa = $_POST["email_mahasiswa"];
       $alamat_mahasiswa = $_POST["alamat_mahasiswa"];
       $jenis_kelamin = $_POST["jenis_kelamin"];
       $jurusan = $_POST["jurusan"];
 
-      $simpan = mysqli_query($conn, "UPDATE mahasiswa SET nama = '$nama_mahasiswa', nim = '$nim_mahasiswa', jenis_kelamin = '$jenis_kelamin', alamat = '$alamat_mahasiswa', jurusan_id = '$jurusan' where id_mhs = '$id'");
+      $simpan = mysqli_query($conn, "UPDATE mahasiswa SET nama = '$nama_mahasiswa', nim = '$nim_mahasiswa', email = '$email_mahasiswa', jenis_kelamin = '$jenis_kelamin', alamat = '$alamat_mahasiswa', jurusan_id = '$jurusan' where id_mhs = '$id'");
 
       echo '
          <script>

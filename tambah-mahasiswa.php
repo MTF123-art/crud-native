@@ -15,6 +15,11 @@ include "config/database.php";
          <label for="nim" class="form-label">NIM Mahasiswa</label>
          <input type="text" class="form-control" id="nim" aria-describedby="emailHelp" name="nim_mahasiswa" required>
       </div>
+      
+      <div class="mb-3">
+         <label for="email" class="form-label">Email Mahasiswa</label>
+         <input type="text" class="form-control" id="email" aria-describedby="emailHelp" name="email_mahasiswa" required>
+      </div>
 
       <div class="mb-3">
          <label for="alamat" class="form-label">Alamat Mahasiswa</label>
@@ -51,11 +56,12 @@ if (isset($_POST["simpan"])) {
    if ($_POST["nama_mahasiswa"]) {
       $nama_mahasiswa = $_POST["nama_mahasiswa"];
       $nim_mahasiswa = $_POST["nim_mahasiswa"];
+      $email_mahasiswa = $_POST["email_mahasiswa"];
       $alamat_mahasiswa = $_POST["alamat_mahasiswa"];
       $jenis_kelamin = $_POST["jenis_kelamin"];
       $jurusan = $_POST["jurusan"];
 
-      $simpan = mysqli_query($conn, "INSERT INTO mahasiswa (nama, nim, jenis_kelamin, alamat, jurusan_id) values ('$nama_mahasiswa', '$nim_mahasiswa', '$jenis_kelamin','$alamat_mahasiswa', $jurusan )");
+      $simpan = mysqli_query($conn, "INSERT INTO mahasiswa (nama, nim, email, jenis_kelamin, alamat, jurusan_id) values ('$nama_mahasiswa', '$nim_mahasiswa', '$email_mahasiswa', '$jenis_kelamin','$alamat_mahasiswa', $jurusan )");
 
       echo '
          <script>
