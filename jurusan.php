@@ -22,17 +22,17 @@ $jurusan = mysqli_query($conn, "SELECT * FROM jurusan");
                </tr>
             </thead>
             <tbody>
-               <?php $a = 1;?>
-               <?php foreach( $jurusan as $data): ?>
-               <tr>
-                  <th scope="row"><?= $a++?></th>
-                  <td><?= $data["nama_jurusan"] ?></td>
-                  <td>
-                     <a href="edit-jurusan.php?id=<?= $data["id_jurusan"] ?>" class="btn btn-primary">Edit</a>
-                     <a href="hapus-jurusan.php?id=<?= $data["id_jurusan"] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
-                  </td>
-               </tr>
-               <?php endforeach;?>
+               <?php $a = 1; ?>
+               <?php foreach ($jurusan as $data): ?>
+                  <tr>
+                     <th scope="row"><?= $a++ ?></th>
+                     <td><?= $data["nama_jurusan"] ?></td>
+                     <td>
+                        <a href="edit-jurusan.php?id=<?= $data["id_jurusan"] ?>" class="btn btn-primary">Edit</a>
+                        <a href="hapus-jurusan.php?id=<?= $data["id_jurusan"] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
+                     </td>
+                  </tr>
+               <?php endforeach; ?>
             </tbody>
          </table>
       </div>
