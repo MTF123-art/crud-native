@@ -61,14 +61,24 @@ if (isset($_POST["simpan"])) {
       $jenis_kelamin = $_POST["jenis_kelamin"];
       $jurusan = $_POST["jurusan"];
 
-      $simpan = mysqli_query($conn, "INSERT INTO mahasiswa (nama, nim, email, jenis_kelamin, alamat, jurusan_id) values ('$nama_mahasiswa', '$nim_mahasiswa', '$email_mahasiswa', '$jenis_kelamin','$alamat_mahasiswa', $jurusan )");
-
-      echo '
+      $cek = mysqli_query($conn, "select * from mahasiswa where nim = '$nim_mahasiswa' or email = '$email_mahasiswa'");
+      if(mysqli_num_rows($cek) > 0){
+         echo '
          <script>
-            alert("data berhasil disimpan");
-            window.location.href = "mahasiswa.php";
+            alert("Email atau NIM sudah terdaftar");
+            window.location.href = "tambah-mahasiswa.php";
          </script>
       ';
+      }else{
+         $simpan = mysqli_query($conn, "INSERT INTO mahasiswa (nama, nim, email, jenis_kelamin, alamat, jurusan_id) values ('$nama_mahasiswa', '$nim_mahasiswa', '$email_mahasiswa', '$jenis_kelamin','$alamat_mahasiswa', $jurusan )");
+         echo '
+            <script>
+               alert("data berhasil disimpan");
+               window.location.href = "mahasiswa.php";
+            </script>
+         ';
+      }
+
    } else {
       echo '
       <script>
