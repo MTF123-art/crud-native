@@ -7,12 +7,12 @@ $mahasiswa = mysqli_query($conn, "SELECT * FROM mahasiswa");
 
 <!-- main -->
 <div class="container pt-3">
-   <div class="card">
+   <div class="card ">
       <div class="card-header d-flex justify-content-between align-items-center">
          <h4>Data Mahasiswa</h4>
          <a href="tambah-mahasiswa.php" class="btn btn-secondary">Tambah Mahasiswa</a>
       </div>
-      <div class="card-body">
+      <div class="card-body overflow-x-scroll">
          <table class="table">
             <thead>
                <tr>
@@ -36,11 +36,11 @@ $mahasiswa = mysqli_query($conn, "SELECT * FROM mahasiswa");
                   <td><?= $data["email"] ?></td>
                   <td><?= $data["jenis_kelamin"] ?></td>
                   <td><?= $data["alamat"] ?></td>
-                  <?php $jurusan =mysqli_fetch_assoc(mysqli_query($conn, "SELECT nama_jurusan FROM jurusan where id_jurusan = '$data[jurusan_id]'"));?>
+                  <?php $jurusan =mysqli_fetch_assoc(mysqli_query($conn, "SELECT nama_jurusan FROM jurusan where id = '$data[jurusan_id]'"));?>
                   <td><?= $jurusan["nama_jurusan"] ?></td>
                   <td>
-                     <a href="edit-mahasiswa.php?id=<?= $data["id_mhs"] ?>" class="btn btn-primary">Edit</a>
-                     <a href="hapus-mahasiswa.php?id=<?= $data["id_mhs"] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
+                     <a href="edit-mahasiswa.php?id=<?= $data["id"] ?>" class="btn btn-primary">Edit</a>
+                     <a href="hapus-mahasiswa.php?id=<?= $data["id"] ?>" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?');">Hapus</a>
                   </td>
                </tr>
                <?php endforeach;?>

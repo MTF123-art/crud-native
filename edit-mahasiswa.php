@@ -3,7 +3,7 @@ include "layout/header.php";
 include "config/database.php";
 
 $id = $_GET["id"];
-$mahasiswa = mysqli_query($conn, "select * from mahasiswa where id_mhs = '$id'");
+$mahasiswa = mysqli_query($conn, "select * from mahasiswa where id = '$id'");
 $data = mysqli_fetch_assoc($mahasiswa);
 ?>
 
@@ -43,7 +43,7 @@ $data = mysqli_fetch_assoc($mahasiswa);
          <label for="jurusan" class="form-label">Jurusan</label>
          <select class="form-select" name="jurusan" id="jurusan">
             <?php foreach ($jurusan as $jrs): ?>
-               <option value="<?= $jrs['id_jurusan'] ?>" <?= $jrs['id_jurusan'] == $data['jurusan_id'] ? "selected" : "" ?>><?= $jrs['nama_jurusan'] ?></option>
+               <option value="<?= $jrs['id'] ?>" <?= $jrs['id'] == $data['jurusan_id'] ? "selected" : "" ?>><?= $jrs['nama_jurusan'] ?></option>
             <?php endforeach; ?>
          </select>
       </div>
@@ -63,7 +63,7 @@ if (isset($_POST["simpan"])) {
       $jenis_kelamin = $_POST["jenis_kelamin"];
       $jurusan = $_POST["jurusan"];
 
-      $simpan = mysqli_query($conn, "UPDATE mahasiswa SET nama = '$nama_mahasiswa', nim = '$nim_mahasiswa', email = '$email_mahasiswa', jenis_kelamin = '$jenis_kelamin', alamat = '$alamat_mahasiswa', jurusan_id = '$jurusan' where id_mhs = '$id'");
+      $simpan = mysqli_query($conn, "UPDATE mahasiswa SET nama = '$nama_mahasiswa', nim = '$nim_mahasiswa', email = '$email_mahasiswa', jenis_kelamin = '$jenis_kelamin', alamat = '$alamat_mahasiswa', jurusan_id = '$jurusan' where id = '$id'");
 
       echo '
          <script>

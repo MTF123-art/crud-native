@@ -41,7 +41,7 @@ include "config/database.php";
          <select class="form-select" name="jurusan" id="jurusan">
             <option selected>--</option>
             <?php foreach ($jurusan as $jrs): ?>
-               <option value="<?= $jrs['id_jurusan'] ?>"><?= $jrs['nama_jurusan'] ?></option>
+               <option value="<?= $jrs['id'] ?>"><?= $jrs['nama_jurusan'] ?></option>
             <?php endforeach; ?>
          </select>
       </div>

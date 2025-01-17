@@ -28,7 +28,7 @@ $data_jurusan = mysqli_query($conn, "SELECT * FROM jurusan");
             <div class="row">
                 <!-- card -->
                 <?php foreach ($data_jurusan as $jurusan): ?>
-                    <?php $jumlah_mhs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as jumlah FROM mahasiswa WHERE jurusan_id = '$jurusan[id_jurusan]'")); ?>
+                    <?php $jumlah_mhs = mysqli_fetch_assoc(mysqli_query($conn, "SELECT COUNT(*) as jumlah FROM mahasiswa WHERE jurusan_id = '$jurusan[id]'")); ?>
                     <div class="col-md-6 my-2">
                         <div class="card text-center shadow p-3 mb-5 bg-body rounded">
                             <div class="card-header bg-primary text-white">

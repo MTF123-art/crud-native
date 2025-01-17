@@ -3,7 +3,7 @@ include "layout/header.php";
 include "config/database.php";
 
 $id = $_GET["id"];
-$jurusan = mysqli_query($conn, "select * from jurusan where id_jurusan = '$id'");
+$jurusan = mysqli_query($conn, "select * from jurusan where id = '$id'");
 $data = mysqli_fetch_assoc($jurusan);
 ?>
 
@@ -21,7 +21,7 @@ include "layout/footer.php";
 if (isset($_POST["Ubah"])) {
 
    $nama_jurusan = $_POST["nama_jurusan"];
-   $simpan = mysqli_query($conn, "UPDATE jurusan set nama_jurusan = '$nama_jurusan' where id_jurusan = $id");
+   $simpan = mysqli_query($conn, "UPDATE jurusan set nama_jurusan = '$nama_jurusan' where id = $id");
    echo '
       <script>
          alert("data berhasil disimpan");
